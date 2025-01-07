@@ -60,7 +60,6 @@ function convert (categories, i){
     const sign = "|--".repeat(i);
     categories.forEach((category) => {
         content += `<option value="${category.id}">${sign}${category.name}</option> \n`;
-        console.log(category.children);
         if (Array.isArray(category.children)) {
             return convert(category.children, i++);
         }
@@ -70,5 +69,4 @@ function convert (categories, i){
 let content = `<select> \n`;
 content += convert(categories, 1);
 content += `</select>`;
-console.log(content);
 document.write(content);
